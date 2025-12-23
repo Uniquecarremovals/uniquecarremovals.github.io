@@ -61,11 +61,14 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 8px 20px;
 }
 
+/* ========================================
+   👇 LOGO SIZE - CHANGE height VALUE HERE 
+   ======================================== */
 .logo img {
-    height: 20px;
+    height: 45px;
     width: auto;
     object-fit: contain;
 }
@@ -78,13 +81,13 @@ a {
 .call-btn {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     color: var(--white) !important;
-    padding: 14px 30px;
+    padding: 12px 25px;
     border-radius: 50px;
     display: flex;
     align-items: center;
     gap: 10px;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 0.95rem;
     transition: var(--transition);
     box-shadow: var(--shadow-blue);
 }
@@ -96,7 +99,7 @@ a {
 }
 
 .call-btn i {
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 /* ================================
@@ -516,8 +519,11 @@ a {
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
+/* ==========================================
+   👇 FOOTER LOGO SIZE - CHANGE height HERE 
+   ========================================== */
 .footer-logo img {
-    height: 70px;
+    height: 50px;
     width: auto;
     margin-bottom: 20px;
     filter: brightness(1.1);
@@ -657,11 +663,12 @@ a {
     .header .container {
         flex-direction: column;
         gap: 15px;
-        padding: 15px 20px;
+        padding: 12px 20px;
     }
     
+    /* 👇 MOBILE LOGO SIZE 👇 */
     .logo img {
-        height: 50px;
+        height: 40px;
     }
     
     .hero {
@@ -701,8 +708,8 @@ a {
 
 @media (max-width: 480px) {
     .call-btn {
-        padding: 12px 20px;
-        font-size: 0.9rem;
+        padding: 10px 18px;
+        font-size: 0.85rem;
     }
     
     .categories {
