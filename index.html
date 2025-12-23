@@ -1,43 +1,290 @@
----
-layout: null
----
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Unique Car Removals Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Unique Car Removals blog with car removal tips, guides and updates.">
-
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unique Car Removals | Blog</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-  <header class="site-header">
-    <h1>Unique Car Removals</h1>
-    <p>Car Removal Tips, Guides & Updates</p>
-  </header>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <span>Unique Car Removals</span>
+            </div>
+            <nav class="nav">
+                <a href="#" class="active">Blog</a>
+                <a href="tel:+1234567890" class="call-btn">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+            </nav>
+        </div>
+    </header>
 
-  <main class="container">
-    {% for post in site.posts %}
-      <article class="post">
-        <h2 class="post-title">
-          <a href="{{ post.url }}">{{ post.title }}</a>
-        </h2>
-        <p class="post-date">
-          {{ post.date | date: "%d %B %Y" }}
-        </p>
-        <p class="post-excerpt">
-          {{ post.excerpt }}
-        </p>
-      </article>
-    {% endfor %}
-  </main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Our Blog</h1>
+            <p>Tips, News & Insights about Car Removal Services</p>
+        </div>
+    </section>
 
-  <footer class="site-footer">
-    <p>© {{ site.time | date: "%Y" }} Unique Car Removals</p>
-  </footer>
+    <!-- Search & Filter -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search blog posts..." onkeyup="searchPosts()">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="categories">
+                <button class="category-btn active" onclick="filterPosts('all')">All Posts</button>
+                <button class="category-btn" onclick="filterPosts('tips')">Tips</button>
+                <button class="category-btn" onclick="filterPosts('news')">News</button>
+                <button class="category-btn" onclick="filterPosts('guides')">Guides</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts Grid -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="blog-grid" id="blogGrid">
+
+                <!-- Blog Post 1 -->
+                <article class="blog-card" data-category="tips">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=400" alt="Old car">
+                        <span class="category-tag tips">Tips</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Jan 15, 2025</span>
+                            <span><i class="far fa-clock"></i> 5 min read</span>
+                        </div>
+                        <h2>How to Get the Best Price for Your Old Car</h2>
+                        <p>Discover the secrets to maximizing your car's value before selling it for removal. Learn what factors affect pricing...</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog-card" data-category="guides">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400" alt="Car documents">
+                        <span class="category-tag guides">Guides</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Jan 12, 2025</span>
+                            <span><i class="far fa-clock"></i> 8 min read</span>
+                        </div>
+                        <h2>Complete Guide to Car Removal Documentation</h2>
+                        <p>Everything you need to know about paperwork when selling your car for removal. Required documents and legal steps...</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog-card" data-category="news">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1592853625511-ad0edcc69c07?w=400" alt="Eco recycling">
+                        <span class="category-tag news">News</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Jan 10, 2025</span>
+                            <span><i class="far fa-clock"></i> 4 min read</span>
+                        </div>
+                        <h2>Eco-Friendly Car Recycling: What Happens to Your Old Car</h2>
+                        <p>Learn about our environmentally responsible car recycling process and how we help reduce automotive waste...</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 4 -->
+                <article class="blog-card" data-category="tips">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400" alt="Broken car">
+                        <span class="category-tag tips">Tips</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Jan 8, 2025</span>
+                            <span><i class="far fa-clock"></i> 6 min read</span>
+                        </div>
+                        <h2>Signs It's Time to Say Goodbye to Your Car</h2>
+                        <p>Not sure if you should repair or remove your car? Here are the key signs that indicate it's time for car removal...</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 5 -->
+                <article class="blog-card" data-category="guides">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=400" alt="Car pickup">
+                        <span class="category-tag guides">Guides</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Jan 5, 2025</span>
+                            <span><i class="far fa-clock"></i> 5 min read</span>
+                        </div>
+                        <h2>What to Expect on Car Removal Day</h2>
+                        <p>A step-by-step walkthrough of our car removal process. From booking to pickup, here's everything you need to know...</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 6 -->
+                <article class="blog-card" data-category="news">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=400" alt="Cash for cars">
+                        <span class="category-tag news">News</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Jan 2, 2025</span>
+                            <span><i class="far fa-clock"></i> 3 min read</span>
+                        </div>
+                        <h2>Cash for Cars: 2025 Market Trends</h2>
+                        <p>The scrap car market is changing. Find out what your old car might be worth in 2025 and upcoming industry trends...</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more-section">
+                <button class="load-more-btn" onclick="loadMore()">
+                    Load More Posts <i class="fas fa-spinner"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2><i class="fas fa-envelope"></i> Subscribe to Our Newsletter</h2>
+                <p>Get the latest tips and news about car removal delivered to your inbox</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <i class="fas fa-car"></i>
+                        <span>Unique Car Removals</span>
+                    </div>
+                    <p>Your trusted partner for hassle-free car removal services. We buy all cars in any condition.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+                    <p><i class="fas fa-envelope"></i> info@uniquecarremovals.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Your City, Your State</p>
+                </div>
+                <div class="footer-hours">
+                    <h3>Business Hours</h3>
+                    <p>Monday - Friday: 8AM - 6PM</p>
+                    <p>Saturday: 9AM - 4PM</p>
+                    <p>Sunday: Closed</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Unique Car Removals. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Search Posts
+        function searchPosts() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const posts = document.querySelectorAll('.blog-card');
+            
+            posts.forEach(post => {
+                const title = post.querySelector('h2').textContent.toLowerCase();
+                const content = post.querySelector('p').textContent.toLowerCase();
+                
+                if (title.includes(input) || content.includes(input)) {
+                    post.style.display = 'block';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        }
+
+        // Filter Posts by Category
+        function filterPosts(category) {
+            const buttons = document.querySelectorAll('.category-btn');
+            const posts = document.querySelectorAll('.blog-card');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            posts.forEach(post => {
+                if (category === 'all' || post.dataset.category === category) {
+                    post.style.display = 'block';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        }
+
+        // Load More (Demo)
+        function loadMore() {
+            const btn = document.querySelector('.load-more-btn');
+            btn.innerHTML = 'Loading... <i class="fas fa-spinner fa-spin"></i>';
+            
+            setTimeout(() => {
+                btn.innerHTML = 'No More Posts <i class="fas fa-check"></i>';
+                btn.disabled = true;
+            }, 1500);
+        }
+
+        // Back to Top
+        window.onscroll = function() {
+            const btn = document.getElementById('backToTop');
+            if (document.documentElement.scrollTop > 300) {
+                btn.classList.add('show');
+            } else {
+                btn.classList.remove('show');
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 
 </body>
 </html>
